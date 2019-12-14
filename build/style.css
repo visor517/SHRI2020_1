@@ -1,0 +1,150 @@
+/* Блок тема */
+.theme_color_project-default {
+	--сolor-bg: #FFF;
+	--color-bg2: #FC0;
+	--color-border: #000;
+	--color-text: #000;
+	--color-second: rgba(0, 0, 0, 0.6);
+	--color-addition: rgba(0, 0, 0, 0.3);
+	--color-link: #07F;
+}
+.theme_color_project-inverse,.theme_color_project-brand,.theme_color_project-warning {
+	--color-bg2: #FFF;
+	--color-border: #FFF;
+	--color-text: #FFF;
+	--color-second: rgba(255, 255, 255, 0.6);
+	--color-addition: rgba(255, 255, 255, 0.3);
+	--color-link: #FFF;	
+}
+.theme_color_project-brand {
+	--сolor-bg: #07F;
+}
+.theme_color_project-inverse {
+	--сolor-bg: #000;
+	--color-link: #07F;
+}
+.theme_color_project-warning {
+	--сolor-bg: #F33;
+	--color-border: #F33;
+}
+
+.theme_size_default {
+	--text-s: 8px;
+	--text-m: 10px;
+	--text-l: 11px;
+	--text-xl: 13px;
+	--text-xxl: 16px;
+	--line-s: 21px;
+	--line-m: 25px;
+	--line-l: 28px;
+	--line-xl: 34px;
+	--line-xxl: 38px;
+}
+
+.theme_space_default {
+	--space-xxxs: 3px;
+	--space-xxs: 6px;
+	--space-xs: 9px;
+	--space-s: 15px;
+	--space-m: 18px;
+	--space-l: 24px;
+	--space-xl: 27px;
+	--space-xxl: 36px;
+	--space-xxxl: 45px;
+	--space-xxxxl: 51px;
+	--space-xxxxxl: 72px;
+}
+
+											/* брейкпоинт */
+
+.theme_gap_small {
+	--gap: var(--space-xl);
+}
+
+@media handheld {					/* возможно нужно изменить!!!!! */
+	.theme_gap_small {
+	--gap: var(--space-s);
+	}
+}
+
+* {box-sizing: border-box;}
+
+/* Слой каркаса */
+	/* Контейнер */
+.layout__container_align_center {margin: 0 auto;}
+
+.layout__container_size_s {max-width: 920px;}
+
+.layout__container_size_m {max-width: 1280px;}
+
+.layout__container_space-v_xxxxl {padding: var(--space-xxxxl) 0;}
+
+.layout__container_space-v_xxxxxl {padding: var(--space-xxxxxl) 0;}
+
+.layout__container_indent-b_xxl {margin-bottom: var(--space-xxl);}
+
+.layout__container_indent-b_xxxxl {margin-bottom: var(--space-xxxxl);}
+
+	/* Сетка */
+.grid {
+	display: grid;
+	grid-template-rows: auto;
+}
+													/*Количество возможных колонок при ширине экрана screen-m*/
+.grid_m-columns_12 {grid-template-columns: repeat(12, 1fr);}
+.grid_m-columns_10 {grid-template-columns: repeat(10, 1fr);}
+.grid_col-gap_two-thirds {grid-column-gap: calc(var(--gap)*2/3);}
+.grid_col-gap_full {grid-column-gap: var(--gap);}
+.grid_col-gap_half {grid-column-gap: calc(var(--gap)/2);}
+.grid_row-gap_full {grid-row-gap: var(--gap);}
+.grid_row-gap_half {grid-row-gap: calc(var(--gap)/2);}
+
+.grid__fraction_m-col_2 {grid-column-end: span 2;}
+.grid__fraction_m-col_3 {grid-column-end: span 3;}
+.grid__fraction_m-col_4 {grid-column-end: span 4;}
+.grid__fraction_m-col_5 {grid-column-end: span 5;}
+.grid__fraction_m-col_8 {grid-column-end: span 8;}
+
+@media (max-width: 1024px) {
+	.grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Слой паттернов */
+	/* Карточка */
+.card, .card__content {position: relative;}
+
+.card__content, .card__footer {display: flex;}
+
+[class*="border_all"] {border: 3px solid var(--color-border);}
+[class*="view_default"] {background: var(--сolor-bg);}
+
+.card__content_distribute_center {text-align: center;}
+.card__content_vertical-align_center {vertical-align: middle;}
+
+[class*="space-a_m"] {padding: var(--space-m);}
+[class*="space-a_l"] {padding: var(--space-l);}
+[class*="space-a_xl"] {padding: var(--space-xl);}
+[class*="space-a_xxl"] {padding: var(--space-xxl);}
+[class*="space-a_xxxl"] {padding: var(--space-xxxl);}
+
+.card__footer {
+	position: absolute;
+	bottom: 0;
+}
+
+.card__footer_distribute_between {justify-content: space-between;}
+.card__footer_distribute_center {justify-content: center;}
+.card__footer_distribute_right {justify-content: flex-end;}
+.card__footer_vertical-align_center {align-items: center;}
+.card__footer_vertical-align_top {align-items: flex-start;}
+.card__footer_vertical-align_bottom {align-items: flex-end;}
+
+	/* Форма */
+
+.form__item {}
+.form__label {}
+.form__control {}
+
+.form__item_border_bottom {}
