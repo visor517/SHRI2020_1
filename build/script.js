@@ -11,7 +11,7 @@ function stubs() {
 }
 
 // ловим клик на переключатель
-document.querySelector('.onoffswitch__button').addEventListener('click', switcher);
+if (document.querySelector('.onoffswitch__button')) document.querySelector('.onoffswitch__button').addEventListener('click', switcher);
 
 function switcher(event) {
 	//переключатель
