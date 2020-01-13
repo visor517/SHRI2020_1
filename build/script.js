@@ -35,7 +35,7 @@ function switcher(event) {
 }
 
 //ловим клики по блоку истроии
-document.querySelector('.history').addEventListener('click', disclosure);
+if (document.querySelector('.history')) document.querySelector('.history').addEventListener('click', disclosure);
 
 function disclosure(event) {
 	var item = event.target.closest('.history__transaction');
