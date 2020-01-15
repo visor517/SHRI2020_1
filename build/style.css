@@ -1,3 +1,5 @@
+body {margin: 0;}
+
 /* Блок тема */
 .theme_color_project-default {
 	--color-bg: #FFF;
@@ -188,6 +190,8 @@
 .form__item > .form__label_width_default {width: 35%;}
 .form__control {flex: 1;}
 
+.form__item:last-child {margin-bottom: 0};
+
 /* Блок icon-plus */
 .icon-plus {display: flex;}
 .icon-plus_vertical-align_center {align-items: center;}
@@ -279,7 +283,7 @@
 .input_size_xxl {height: 64px;}
 
 .image {
-	border: 3px solid var(--color-border);
+	border: 3px;
 	background: var(--color-bg);
 	display: flex;
 	justify-content: center;
@@ -288,10 +292,11 @@
 
 /* Контентные блоки */
 .header, .footer {
+	box-sizing: content-box;
 	max-width: 1280px;
 	padding: var(--space-xxxl) var(--gap);
 	margin: 0 auto;
-	}
+}
 
 .header__content, .footer__content {
 	display: flex;
@@ -320,7 +325,10 @@
 	height: 24px;
 }
 
-.warning {min-height: 335px;}
+.warning {
+	min-height: 335px;
+	height: 100%;
+}
 .warning .placeholder {margin: var(--space-m) auto;}
 .warning__button-wrapper {display: flex; justify-content: center;}
 
