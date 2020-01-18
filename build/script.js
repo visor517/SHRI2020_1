@@ -1,4 +1,4 @@
-window.onload = stubs();
+document.body.addEventListener('DOMContentLoaded', stubs());
 
 //вставляем заглушки
 function stubs() {
@@ -11,37 +11,34 @@ function stubs() {
 }
 
 // ловим клик на переключатель
-if (document.querySelector('.onoffswitch__button')) document.querySelector('.onoffswitch__button').addEventListener('click', switcher);
+document.body.addEventListener('click', clicker);
 
-function switcher(event) {
-	//переключатель
-	var onoffswitch = this.parentNode;
-	if (onoffswitch.classList.contains('onoffswitch_checked')) onoffswitch.classList.remove('onoffswitch_checked');
-	else onoffswitch.classList.add('onoffswitch_checked');
-	//смена тем
-	var themesDefault = document.querySelectorAll('.theme_color_project-default');
-	var themesInverse = document.querySelectorAll('.theme_color_project-inverse');
+function clicker(event) {
+	//переключатель тем
+	if (event.target.classList.contains('onoffswitch__button')) {
+		var onoffswitch = event.target.parentNode;
+		onoffswitch.classList.toggle('onoffswitch_checked');
+		//смена тем
+		var themesDefault = document.querySelectorAll('.theme_color_project-default');
+		var themesInverse = document.querySelectorAll('.theme_color_project-inverse');
 
-	for (var i=0; i<themesDefault.length; i++) {
-		themesDefault[i].classList.remove('theme_color_project-default');
-		themesDefault[i].classList.add('theme_color_project-inverse');
+		for (var i=0; i<themesDefault.length; i++) {
+			themesDefault[i].classList.remove('theme_color_project-default');
+			themesDefault[i].classList.add('theme_color_project-inverse');
+		}
+		for (var i=0; i<themesInverse.length; i++) {
+			themesInverse[i].classList.remove('theme_color_project-inverse');
+			themesInverse[i].classList.add('theme_color_project-default');
+		}
+		//меняем заглушки
+		stubs();
 	}
-	for (var i=0; i<themesInverse.length; i++) {
-		themesInverse[i].classList.remove('theme_color_project-inverse');
-		themesInverse[i].classList.add('theme_color_project-default');
-	}
-	//меняем заглушки
-	stubs();
-}
 
-//ловим клики по блоку истроии
-if (document.querySelector('.history')) document.querySelector('.history').addEventListener('click', disclosure);
-
-function disclosure(event) {
+	//аккардион
 	var item = event.target.closest('.history__transaction');
 	if (item != null) {
 		var item_more = item.querySelector('.e-accordion__more')
-		if (item_more.classList.contains('history__hide')) item_more.classList.remove('history__hide');
-		else item_more.classList.add('history__hide');
+		item_more.classList.toggle('history__hide');
 	}
+	
 }
