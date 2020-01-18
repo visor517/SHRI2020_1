@@ -34,7 +34,7 @@ function clicker(event) {
 		stubs();
 	}
 
-	//аккардион
+	//аккордион
 	var item = event.target.closest('.history__transaction');
 	if (item != null) {
 		var item_more = item.querySelector('.e-accordion__more')
