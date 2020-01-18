@@ -1,4 +1,4 @@
-document.body.addEventListener('DOMContentLoaded', stubs());
+document.addEventListener('DOMContentLoaded', stubs());
 
 //вставляем заглушки
 function stubs() {
